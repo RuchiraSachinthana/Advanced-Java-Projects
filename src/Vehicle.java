@@ -4,9 +4,8 @@
  * Project 1
  * File Name: Vehicle.java
  * 
- * This class uses refactoring to improve structure, works with Derby database
- * and the Java Reflection API, and automates database creation from class definitions
- * and instances.
+ * This class creates the Vehicle class and sets the instance variables
+ * with mutators.
  */
 public class Vehicle {
 	
