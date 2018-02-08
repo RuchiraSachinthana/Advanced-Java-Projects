@@ -65,21 +65,24 @@ public class Database {
 		}
 	}
 	
-	// create table
-	private void createTable() {
+	// creates table, fields will be represented as: 
+	// fields represent: "(make varchar(50), model varchar(50), weight double, +
+	// engineSize double, numOfDoors int, isImport boolean)" 
+	public void createTable(String tableName, ArrayList<String> fields) {
 		
-	//	s = conn.createStatement();
-	//	ResultSet result = s.executeQuery(sql);
-		
-		
+		try {
+			s = conn.createStatement();
+			
+			s.execute("CREATE TABLE Vehicle" + fields);
+		}
+		catch(Exception err) {
+			System.err.println(err.getMessage());
+			err.printStackTrace();
+			System.exit(0);
+		}
 	}
 	
-	private String insertFields(ArrayList<String> fields) {
-		String fieldString;
-		
-		fieldString = "(String, double, int, boolean)";
-		return fieldString;
-	}
+
 
 
 }

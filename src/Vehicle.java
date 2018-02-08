@@ -19,7 +19,9 @@ public class Vehicle {
 	private int numOfDoors;
 	private boolean isImport;
 	
-
+	public Vehicle() {
+		
+	}
 	// parameterized constructor
 	public Vehicle(String make, String model, double weight, double engineSize, int numOfDoors, boolean isImport) {
 		this.make = make;
@@ -87,8 +89,16 @@ public class Vehicle {
 		private Vehicle[] vehicleArr = new Vehicle[numOfVehicle];
 		Random rand = new Random();
 		
+		
+		
+	public Vehicle[] getVehicleArr() {
+			return vehicleArr;
+		}
+		public void setVehicleArr(Vehicle[] vehicleArr) {
+			this.vehicleArr = vehicleArr;
+		}
 	// automates the creation of a new vehicle
-	private Vehicle createNewVehicle() {
+	public Vehicle createNewVehicle() {
 		String make = randomMake();
 		String model = randomModel();
 		double weight = randomWeight(model);
