@@ -17,21 +17,17 @@ public class Vehicle {
 	private double weight;
 	private double engineSize;
 	private int numOfDoors;
-	private boolean IsImport;
-	private int numOfVehicle = 10;
-	private Vehicle[] vehicleArr = new Vehicle[numOfVehicle];
-	Random rand = new Random();
+	private boolean isImport;
+	
 
-	public Vehicle() {
-		
-	}
 	// parameterized constructor
-	public Vehicle(String model, double weight, double engineSize, int numOfDoors, boolean isImport) {
+	public Vehicle(String make, String model, double weight, double engineSize, int numOfDoors, boolean isImport) {
+		this.make = make;
 		this.model = model;
 		this.weight = weight;
 		this.engineSize = engineSize;
 		this.numOfDoors = numOfDoors;
-		this.IsImport = isImport;
+		this.isImport = isImport;
 	}
 	
 	// getters and setters
@@ -70,11 +66,11 @@ public class Vehicle {
 		this.numOfDoors = numOfDoors;
 	}
 	
-	public boolean isIsImport() {
-		return IsImport;
+	public boolean isImport() {
+		return isImport;
 	}
 	public void setIsImport(boolean isImport) {
-		IsImport = isImport;
+		isImport = isImport;
 	}
 	
 	// shows most useful information about Vehicle
@@ -83,9 +79,31 @@ public class Vehicle {
 				"Model: " + model +
 				"Number of Doors: " + numOfDoors +
 				"Engine Size: " + engineSize +
-				"Import? " + IsImport;
+				"Import? " + isImport;
 	}
 	
+	// fields needed to create Vehicle objs
+		private int numOfVehicle = 10;
+		private Vehicle[] vehicleArr = new Vehicle[numOfVehicle];
+		Random rand = new Random();
+		
+	// automates the creation of a new vehicle
+	private Vehicle createNewVehicle() {
+		String make = randomMake();
+		String model = randomModel();
+		double weight = randomWeight(model);
+		double engineSize = randomEngineSize(model);
+		int numOfDoors = randomNumOfDoors(model);
+		boolean isImport = randomIsImport(engineSize);
+		
+		Vehicle vehicle = new Vehicle(make, model, weight, engineSize, numOfDoors, isImport);	
+		
+		for(int i = 0; i < 10; i++) {
+			vehicleArr[i] = vehicle; 
+		}
+		
+		return vehicle;
+	}
 	// random make of Vehicle obj
 	private String randomMake() {
 		String[] randomMake = {"Chevy", "Ford", "Toyota", "Nissan", "Hyundai"};
@@ -146,5 +164,6 @@ public class Vehicle {
 			return false;
 		}
 	}
+	 
 	
 }
