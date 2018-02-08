@@ -1,11 +1,13 @@
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
- * @author Keenal
+ * @author Keenal Shah
  * COP 4027 Advanced Computer Programming
  * Project 1
  * File Name: Vehicle.java
  * 
- * This class creates the Vehicle class and sets the instance variables
- * with mutators.
+ * This class creates the Vehicle class as well as generates random Vehicle objects.  
  */
 public class Vehicle {
 	
@@ -16,7 +18,13 @@ public class Vehicle {
 	private double engineSize;
 	private int numOfDoors;
 	private boolean IsImport;
+	private int numOfVehicle = 10;
+	private Vehicle[] vehicleArr = new Vehicle[numOfVehicle];
+	Random rand = new Random();
 
+	public Vehicle() {
+		
+	}
 	// parameterized constructor
 	public Vehicle(String model, double weight, double engineSize, int numOfDoors, boolean isImport) {
 		this.model = model;
@@ -78,5 +86,65 @@ public class Vehicle {
 				"Import? " + IsImport;
 	}
 	
+	// random make of Vehicle obj
+	private String randomMake() {
+		String[] randomMake = {"Chevy", "Ford", "Toyota", "Nissan", "Hyundai"};
+		int index =  rand.nextInt(randomMake.length);
+		String make = (randomMake[index]);
+		return make;
+	}	
+	
+	// random model of Vehicle obj
+	private String randomModel() {
+		String[] randomModel = {"Compact", "Intermediate", "fullSized", "van", "SUV", "pickup"};
+		int index =  rand.nextInt(randomModel.length);
+		String model = (randomModel[index]);
+		return model;
+	}
+	
+	// random weight of Vehicle obj
+	private double randomWeight(String randomModel) {
+		if(randomModel.equalsIgnoreCase("compact")) {
+			return weight = ThreadLocalRandom.current().nextDouble(1500,2000);
+		}
+		else if(randomModel.equalsIgnoreCase("itermediate")) {
+			return weight = ThreadLocalRandom.current().nextDouble(2001,2500);
+		}
+		else {
+			return weight = ThreadLocalRandom.current().nextDouble(2501,4000);
+		}
+	}
+		// random weight of Vehicle obj
+	private double randomEngineSize(String randomModel) {
+		if(randomModel.equalsIgnoreCase("compact")) {
+			return engineSize = ThreadLocalRandom.current().nextDouble(3,6);
+		}
+		else if(randomModel.equalsIgnoreCase("itermediate")) {
+			return engineSize = ThreadLocalRandom.current().nextDouble(7,10);
+		}
+		else {
+			return engineSize = ThreadLocalRandom.current().nextDouble(11,14);
+		}
+	}
+	
+	// numOfDoors of Vehicle obj
+	private int randomNumOfDoors(String randomModel) {
+		if(randomModel.equalsIgnoreCase("compact")) {
+			return 2;
+		}
+		else {
+			return 4;
+		}
+	}
+	
+	// randomly chooses if a vehicle is importer (true) or not (false)
+	private boolean randomIsImport(Double engineSize) {
+		if(engineSize > 8) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
 }
