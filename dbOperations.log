@@ -1,14 +1,40 @@
 jdbc:derby:Vehicle;create=true
 CREATE TABLE Vehicle(make varchar(50), model varchar(50), weight double, engineSize double, numOfDoors int, isImport boolean)
+INSERT INTO Vehicle VALUES ('Ford', 'van', 3552.193479989821, 11.207005198570464, 4, true)
+INSERT INTO Vehicle VALUES ('Ford', 'fullSized', 2748.5724190258684, 13.715676177043779, 4, true)
+INSERT INTO Vehicle VALUES ('Hyundai', 'pickup', 3960.789644079253, 12.831642039312145, 4, true)
+INSERT INTO Vehicle VALUES ('Nissan', 'pickup', 3015.7397453614226, 13.02309363490986, 4, true)
+INSERT INTO Vehicle VALUES ('Ford', 'SUV', 3575.202747249173, 12.601559065893614, 4, true)
+INSERT INTO Vehicle VALUES ('Ford', 'Intermediate', 3306.7006850456523, 11.269030923900306, 4, true)
+INSERT INTO Vehicle VALUES ('Chevy', 'pickup', 3507.935769929697, 12.686491348124077, 4, true)
+INSERT INTO Vehicle VALUES ('Hyundai', 'SUV', 3845.1501820152243, 13.313925604054784, 4, true)
+INSERT INTO Vehicle VALUES ('Ford', 'van', 3769.120944127315, 11.045700814363185, 4, true)
+INSERT INTO Vehicle VALUES ('Ford', 'SUV', 3182.723295010747, 11.719466609730333, 4, true)
+SELECT make, model, weight, engineSize, numOfDoors, isImport FROM Vehicle
+dbOperations.log
 jdbc:derby:Vehicle;create=true
 CREATE TABLE Vehicle(make varchar(50), model varchar(50), weight double, engineSize double, numOfDoors int, isImport boolean)
+INSERT INTO Vehicle VALUES ('Nissan', 'pickup', 3630.2560491911167, 12.492488890939136, 4, true)
+INSERT INTO Vehicle VALUES ('Chevy', 'Compact', 1776.1842860245274, 5.453505525316443, 2, false)
+INSERT INTO Vehicle VALUES ('Toyota', 'Intermediate', 3989.4540942326544, 11.455552396407548, 4, true)
+INSERT INTO Vehicle VALUES ('Toyota', 'Intermediate', 3404.4717868308653, 13.446962017210812, 4, true)
+INSERT INTO Vehicle VALUES ('Hyundai', 'Intermediate', 2725.138438832465, 12.269216662733696, 4, true)
+INSERT INTO Vehicle VALUES ('Hyundai', 'pickup', 3098.9861550814076, 12.309149427102142, 4, true)
+INSERT INTO Vehicle VALUES ('Nissan', 'fullSized', 2827.2416653457362, 11.246060224363926, 4, true)
+INSERT INTO Vehicle VALUES ('Hyundai', 'Intermediate', 2761.1971362301247, 12.463778139349913, 4, true)
+INSERT INTO Vehicle VALUES ('Hyundai', 'Compact', 1958.8087288902111, 3.5929122759581396, 2, false)
+INSERT INTO Vehicle VALUES ('Ford', 'SUV', 3791.070571455508, 11.838663438291093, 4, true)
+SELECT make, model, weight, engineSize, numOfDoors, isImport FROM Vehicle
 jdbc:derby:Vehicle;create=true
 CREATE TABLE Vehicle(make varchar(50), model varchar(50), weight double, engineSize double, numOfDoors int, isImport boolean)
-jdbc:derby:Vehicle;create=true
-CREATE TABLE Vehicle(make varchar(50), model varchar(50), weight double, engineSize double, numOfDoors int, isImport boolean)
-jdbc:derby:Vehicle;create=true
-CREATE TABLE Vehicle(make varchar(50), model varchar(50), weight double, engineSize double, numOfDoors int, isImport boolean)
-jdbc:derby:Vehicle;create=true
-CREATE TABLE Vehicle(make varchar(50), model varchar(50), weight double, engineSize double, numOfDoors int, isImport boolean)
-jdbc:derby:Vehicle;create=true
-CREATE TABLE Vehicle(make varchar(50), model varchar(50), weight double, engineSize double, numOfDoors int, isImport boolean)
+INSERT INTO Vehicle VALUES ('Hyundai', 'Intermediate', 3144.137621525117, 13.784187399395611, 4, true)
+INSERT INTO Vehicle VALUES ('Chevy', 'SUV', 3704.780179912122, 11.251001979753267, 4, true)
+INSERT INTO Vehicle VALUES ('Toyota', 'pickup', 3883.4742391909285, 13.61861944897754, 4, true)
+INSERT INTO Vehicle VALUES ('Hyundai', 'van', 3626.6028450536796, 13.173565653474716, 4, true)
+INSERT INTO Vehicle VALUES ('Chevy', 'Intermediate', 2593.051101268754, 13.830024574014871, 4, true)
+INSERT INTO Vehicle VALUES ('Ford', 'pickup', 2696.0269993044462, 13.843355891467535, 4, true)
+INSERT INTO Vehicle VALUES ('Toyota', 'fullSized', 2612.02195183263, 12.248319997170219, 4, true)
+INSERT INTO Vehicle VALUES ('Hyundai', 'Compact', 1543.8590341147512, 4.663700182721015, 2, false)
+INSERT INTO Vehicle VALUES ('Hyundai', 'Intermediate', 3735.769859843079, 11.070086996995684, 4, true)
+INSERT INTO Vehicle VALUES ('Toyota', 'van', 2931.584379086894, 13.46846876929477, 4, true)
+SELECT make, model, weight, engineSize, numOfDoors, isImport FROM Vehicle

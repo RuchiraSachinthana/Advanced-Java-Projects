@@ -66,40 +66,43 @@ public class Reflection {
 	
 	//////////////////////////////////////////////////
 	
-	public ArrayList<String> getFieldValues(Object obj, Log log){
-		String type;
-		String field;
-		String fieldValue = "";
-		String className = obj.getClass().getName();
+	
+	
+	public ArrayList<String> getFieldValues(Object object, Log log) {
+		String dataType;
+		String attribute;
+		String fieldString = "";
+		
+		String className = object.getClass().getName();
+		
 		ArrayList<String> instanceFields = getFields(className, log);
 		ArrayList<String> instanceFieldValues = new ArrayList<String>();
+		
 		try {
-			for (int index = 0; index < instanceFields.size()/2; index++) {
-				type = instanceFields.get(index * 2);
-				field = instanceFields.get(index * 2 + 1);
+			for (int i = 0; i < instanceFields.size()/2; i++) {
+				dataType = instanceFields.get(i * 2);
+				attribute = instanceFields.get(i * 2 + 1);
 
-				Field privateField = obj.getClass().getDeclaredField(field);
+				Field privateField = object.getClass().getDeclaredField(attribute);
 				privateField.setAccessible(true);
 			
-				if (type.equalsIgnoreCase("String")) {
-					fieldValue = (String) privateField.get(obj);
+				if (dataType.equalsIgnoreCase("String")) {
+					fieldString= (String) privateField.get(object);
 				}
-				else if (type.equalsIgnoreCase("int")) {
-					fieldValue = String.valueOf(privateField.get(obj));
+				else if (dataType.equalsIgnoreCase("int") || 
+						dataType.equalsIgnoreCase("double") ||
+						dataType.equalsIgnoreCase("boolean")) {
+					fieldString = String.valueOf(privateField.get(object));
 				}
-				else if (type.equalsIgnoreCase("double")) {
-					fieldValue = String.valueOf(privateField.get(obj));
-				}
-				else if (type.equalsIgnoreCase("boolean")) {
-					fieldValue = String.valueOf(privateField.get(obj));
-				}
-				instanceFieldValues.add(type);
-				instanceFieldValues.add(fieldValue);
+						
+				instanceFieldValues.add(dataType);
+				instanceFieldValues.add(fieldString);
 			}
 		}
 		catch (Throwable e) {
 			System.err.println(e);
 		} 
+	//	System.out.println("FIELD" + instanceFieldValues);
 		return instanceFieldValues;
 	}
 

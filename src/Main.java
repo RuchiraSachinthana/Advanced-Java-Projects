@@ -28,11 +28,17 @@ public class Main {
 		Vehicle vh = new Vehicle("make", "model", 0, 0, 0, false);
 		vh.getVehicleList();
 		
+		// populate random Vehicle objs
 		Vehicle[] vhList = vh.getVehicleArr();
-		for(int i = 0; i < 2 ; i++) {
+		for(int i = 0; i < 10 ; i++) {
 			ArrayList<String> val = ref.getFieldValues(vhList[i], log);
-			db.insertToTable(val);
+			db.addToTable(val);
 		}
+		
+	//	 display records
+		db.readTable(fields);
+		
+	
 		
 	}
 	
