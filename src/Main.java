@@ -1,29 +1,39 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 	
 	public static void main(String[] args) throws SQLException {
-		String dbName = "Vehicle";
 		
-		// create a db
+		// create a db 
 		Database db = new Database();
-		Log log = db.createDB(dbName);
+		Log log = db.createDB("Vehicle");
 		
-		// use reflection 
+		// uses reflection
+		Reflection ref = new Reflection();
+		ArrayList<String> fields = ref.getFields("Vehicle", log);
 		
-		// create sql command
-		db.createTable(tableName, fields);
+		////////////////////////////////////
+		
+		// create command for db
+		db.createTable(fields);
 		
 		// create vehicle objs
-		Vehicle vh = new Vehicle();
-		vh.createNewVehicle();
+		Vehicle vh = new Vehicle("make", "model", 0, 0, 0, false);
+		vh.getVehicleList();
 		
-		Vehicle[] vehicleArr = vh.getVehicleArr();
-		for(int i = 0; i < 10; i++) {
-			
+		Vehicle[] vhList = vh.getVehicleArr();
+		for(int i = 0; i < 2 ; i++) {
+			ArrayList<String> val = ref.getFieldValues(vhList[i], log);
+			db.insertToTable(val);
 		}
+		
 	}
 	
 

@@ -1,3 +1,5 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -19,9 +21,18 @@ public class Vehicle {
 	private int numOfDoors;
 	private boolean isImport;
 	
+	/*
 	public Vehicle() {
-		
+		this.make = "";
+		this.model = "";
+		this.weight = 0.0;
+		this.engineSize = 0.0;
+		this.numOfDoors = 0;
+		this.isImport = false;
 	}
+
+	*/
+	
 	// parameterized constructor
 	public Vehicle(String make, String model, double weight, double engineSize, int numOfDoors, boolean isImport) {
 		this.make = make;
@@ -31,6 +42,7 @@ public class Vehicle {
 		this.numOfDoors = numOfDoors;
 		this.isImport = isImport;
 	}
+	
 	
 	// getters and setters
 	public String getMake() {
@@ -85,17 +97,23 @@ public class Vehicle {
 	}
 	
 	// fields needed to create Vehicle objs
-		private int numOfVehicle = 10;
+		public int numOfVehicle = 10;
 		private Vehicle[] vehicleArr = new Vehicle[numOfVehicle];
-		Random rand = new Random();
+		private Random rand = new Random();
 		
-		
-		
+		// getters and setters for vehicleArr 
 	public Vehicle[] getVehicleArr() {
 			return vehicleArr;
 		}
 		public void setVehicleArr(Vehicle[] vehicleArr) {
 			this.vehicleArr = vehicleArr;
+		}
+		
+		// get vehicle list
+		public void getVehicleList() {
+			for(int i = 0; i < 10; i++) {
+				vehicleArr[i] = createNewVehicle();
+			}
 		}
 	// automates the creation of a new vehicle
 	public Vehicle createNewVehicle() {
@@ -108,11 +126,13 @@ public class Vehicle {
 		
 		Vehicle vehicle = new Vehicle(make, model, weight, engineSize, numOfDoors, isImport);	
 		
-		for(int i = 0; i < 10; i++) {
-			vehicleArr[i] = vehicle; 
-		}
-		
 		return vehicle;
+	}
+	
+	public void vehicleList() {
+		for(int i = 0; i < 10; i++) {
+			vehicleArr[i] = createNewVehicle();
+		}
 	}
 	// random make of Vehicle obj
 	private String randomMake() {
@@ -174,6 +194,7 @@ public class Vehicle {
 			return false;
 		}
 	}
-	 
+	
+
 	
 }

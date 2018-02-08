@@ -13,6 +13,26 @@ public class Log {
 	PrintWriter pw = null;
 	Scanner in = null;
 	
+	
+	public Log(String logName) {
+		super();
+		this.logName = logName;
+	}
+
+
+
+	public String getLogName() {
+		return logName;
+	}
+
+
+
+	public void setLogName(String logName) {
+		this.logName = logName;
+	}
+
+
+
 	public void writeFile(String addToLog) {
 		try {
 			// open the file
