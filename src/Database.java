@@ -9,8 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
-
 /**
  * @author Keenal Shah
  * COP 4027 Advanced Computer Programming
@@ -79,9 +77,8 @@ public class Database {
 		return log;
 	}
 	
-	////////////////////////////////////////////////////
-		
 	
+	// create db table
 	public void createTable(ArrayList<String> fields) {
 		String dataType = "(make varchar(50), model varchar(50), weight double, engineSize double, numOfDoors int, isImport boolean)";
 		System.out.println(dataType);
@@ -100,20 +97,26 @@ public class Database {
 		}
 	}
 
-	private String extractFields(ArrayList<String> instanceValues) {
+	// separates fields from the String so it can be used for the right data type
+	// typeAttString looks like:
+	//[String, make, String, model, double, weight, double, engineSize, int, numOfDoors, boolean, isImport]
+	private String extractFields(ArrayList<String> typeAttString) {
 		String value;
 		String valueString = "(";
-		String type;
-		for (int i = 0; i < instanceValues.size()/2; i++) {
-			value = instanceValues.get(i * 2 + 1);			
-			type = instanceValues.get(i * 2);
-			if (type.equalsIgnoreCase("String")) {
+		String dataType;
+		
+		// method to give back every other item in the ArrayList
+		// can also be done by using the modulo operator
+		for (int i = 0; i < typeAttString.size()/2; i++) {
+			value = typeAttString.get(i * 2 + 1);			
+			dataType = typeAttString.get(i * 2);
+			if (dataType.equals("String")) {
 				valueString += "'" + value + "'";
 			}
 			else {
 				valueString += value;
 			}
-			if ((i + 1) < (instanceValues.size()/2)) {
+			if ((i + 1) < (typeAttString.size()/2)) {
 				valueString += ", ";
 			}
 		}
@@ -122,9 +125,9 @@ public class Database {
 		return valueString;
 	}	
 	
-	
-		public void addToTable(ArrayList<String> instanceValues) {
-			String attributes = extractFields(instanceValues);
+	// add the extracted string into the table to get the create table sql statement
+		public void addToTable(ArrayList<String> typeAttString) {
+			String attributes = extractFields(typeAttString);
 			try {
 				s.execute("INSERT INTO Vehicle" + " VALUES " + attributes);
 				System.out.println("Record successfully inserted into table: Vehicle");
@@ -137,47 +140,39 @@ public class Database {
 			}
 		}
 		
-	
-	private String extractString(ArrayList<String> instanceFields) {
+	// extract the type to make a similar sql statement for SELECT
+	private String extractString(ArrayList<String> typeAttString) throws SQLException{
 		String field;
 		String selectString = "SELECT ";
-		for (int index = 0; index < instanceFields.size()/2; index++) {
-			field = instanceFields.get(index * 2 + 1);
+		for (int index = 0; index < typeAttString.size()/2; index++) {
+			field = typeAttString.get(index * 2 + 1);
 			selectString += field;
-			if ((index + 1) < (instanceFields.size()/2)) {
+			if ((index + 1) < (typeAttString.size()/2)) {
 				selectString += ", ";
 			}
 		}
 		selectString += " FROM ";
+		ResultSet rs = s.executeQuery(extractString(typeAttString) + "Vehicle");
+		log.writeFile(extractString(typeAttString) + "Vehicle");
+			display(rs);
+		
 		return selectString;
 	}		
 	
-	
-	
-	public void readTable(ArrayList<String> instanceFields) throws SQLException {
-		String selectString = extractString(instanceFields);
-		ResultSet resultSet = s.executeQuery(selectString + "Vehicle");
-		log.writeFile(selectString + "Vehicle");
-		System.out.println("\nHere are all records from the table Vehicle");
-		while(resultSet.next()) {
-			display(resultSet);
-		}
-	}
-	
-	
-	
-	private void display(ResultSet resultSet) throws SQLException {
-		ResultSetMetaData rsmd = resultSet.getMetaData();
-		do {
-			for (int index = 1; index <= rsmd.getColumnCount(); index++) {
-				if (index > 1) {
-					System.out.print(", ");
+
+// display results		
+	private void display(ResultSet rs) throws SQLException {
+
+		ResultSetMetaData rsmd = rs.getMetaData();
+		while(rs.next()) {
+			for(int i = 0; i < rsmd.getColumnCount(); i++) {
+				if(i > 0) {
+					System.out.println(", ");
 				}
-				String columnValue = resultSet.getString(index);
-				System.out.print(columnValue);
+				String col = rs.getString(i);
+				System.out.println(col);
 			}
-			System.out.println();
-		}  while (resultSet.next());
+		}
 	}
 	
 

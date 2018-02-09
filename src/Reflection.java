@@ -2,6 +2,15 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Keenal
+ * COP 4027 Advanced Computer Programming
+ * Project 1
+ * File Name: Reflection.java
+ * 
+ * This class uses Reflection to get the instance fields from the Vehicle class to be accessible in order to create the db table.
+ */
+
 public class Reflection {
 
 	public ArrayList<String> getFields(String className, Log log) {
@@ -11,8 +20,7 @@ public class Reflection {
 
 		// array to hold the data gathered
 		// should come out like this:
-		// [String, make, String, model, double, weight, double, engineSize, int,
-		// numOfDoors, boolean, isImport]
+		// [String, make, String, model, double, weight, double, engineSize, int, numOfDoors, boolean, isImport]
 		ArrayList<String> fields = new ArrayList<>();
 
 		// get access to the class's fields
@@ -64,10 +72,8 @@ public class Reflection {
 
 	}
 	
-	//////////////////////////////////////////////////
 	
-	
-	
+	// gets the individual item in the array list without the extra delimeters 
 	public ArrayList<String> getFieldValues(Object object, Log log) {
 		String dataType;
 		String attribute;
@@ -89,7 +95,7 @@ public class Reflection {
 				if (dataType.equalsIgnoreCase("String")) {
 					fieldString= (String) privateField.get(object);
 				}
-				else if (dataType.equalsIgnoreCase("int") || 
+				if (dataType.equalsIgnoreCase("int") || 
 						dataType.equalsIgnoreCase("double") ||
 						dataType.equalsIgnoreCase("boolean")) {
 					fieldString = String.valueOf(privateField.get(object));

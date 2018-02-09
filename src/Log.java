@@ -7,6 +7,15 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+/**
+ * @author Keenal
+ * COP 4027 Advanced Computer Programming
+ * Project 1
+ * File Name: Log.java
+ * 
+ * This class writes all the data created from the database onto the log file. 
+ */
+
 public class Log {
 	
 	private String logName;

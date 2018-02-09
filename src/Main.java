@@ -6,7 +6,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-
+/**
+ * 
+ * @author Keenal
+ * COP 4027 Advanced Computer Programming
+ * Project 1
+ * File Name: Main.java
+ * 
+ * This is the tester class. 
+ */
 public class Main {
 	
 	public static void main(String[] args) throws SQLException {
@@ -19,8 +27,6 @@ public class Main {
 		Reflection ref = new Reflection();
 		ArrayList<String> fields = ref.getFields("Vehicle", log);
 		
-		////////////////////////////////////
-		
 		// create command for db
 		db.createTable(fields);
 		
@@ -28,16 +34,12 @@ public class Main {
 		Vehicle vh = new Vehicle("make", "model", 0, 0, 0, false);
 		vh.getVehicleList();
 		
-		// populate random Vehicle objs
+		// populate random Vehicle objs & display records
 		Vehicle[] vhList = vh.getVehicleArr();
 		for(int i = 0; i < 10 ; i++) {
 			ArrayList<String> val = ref.getFieldValues(vhList[i], log);
 			db.addToTable(val);
 		}
-		
-	//	 display records
-		db.readTable(fields);
-		
 	
 		
 	}
