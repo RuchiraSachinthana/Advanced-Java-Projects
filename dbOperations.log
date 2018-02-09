@@ -1,0 +1,12 @@
+jdbc:derby:Vehicle;create=true
+CREATE TABLE Vehicle(make varchar(50), model varchar(50), weight double, engineSize double, numOfDoors int, isImport boolean)
+INSERT INTO Vehicle VALUES ('Ford', 'fullSized', 2643.192167267548, 12.148303369366072, 4, true)
+INSERT INTO Vehicle VALUES ('Chevy', 'Intermediate', 3622.6392690762946, 12.631593430755117, 4, true)
+INSERT INTO Vehicle VALUES ('Chevy', 'Compact', 1887.6706152846998, 3.893639236451412, 2, false)
+INSERT INTO Vehicle VALUES ('Hyundai', 'fullSized', 2515.9310574611186, 13.371932889049663, 4, true)
+INSERT INTO Vehicle VALUES ('Chevy', 'Intermediate', 3087.586806020223, 13.100134155806481, 4, true)
+INSERT INTO Vehicle VALUES ('Chevy', 'fullSized', 3612.703108041755, 11.69164438278652, 4, true)
+INSERT INTO Vehicle VALUES ('Hyundai', 'pickup', 3472.061481335174, 11.708916087817078, 4, true)
+INSERT INTO Vehicle VALUES ('Ford', 'fullSized', 2551.8986517016338, 12.344007930097165, 4, true)
+INSERT INTO Vehicle VALUES ('Ford', 'van', 3545.6721081716773, 11.467403884986828, 4, true)
+INSERT INTO Vehicle VALUES ('Nissan', 'pickup', 3369.4147517565075, 11.452233790205986, 4, true)

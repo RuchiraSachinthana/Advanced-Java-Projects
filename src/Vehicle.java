@@ -21,17 +21,6 @@ public class Vehicle {
 	private int numOfDoors;
 	private boolean isImport;
 	
-	/*
-	public Vehicle() {
-		this.make = "";
-		this.model = "";
-		this.weight = 0.0;
-		this.engineSize = 0.0;
-		this.numOfDoors = 0;
-		this.isImport = false;
-	}
-
-	*/
 	
 	// parameterized constructor
 	public Vehicle(String make, String model, double weight, double engineSize, int numOfDoors, boolean isImport) {

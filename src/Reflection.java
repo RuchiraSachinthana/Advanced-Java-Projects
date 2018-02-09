@@ -74,12 +74,12 @@ public class Reflection {
 	
 	
 	// gets the individual item in the array list without the extra delimeters 
-	public ArrayList<String> getFieldValues(Object object, Log log) {
+	public ArrayList<String> getFieldValues(Object obj, Log log) {
 		String dataType;
 		String attribute;
 		String fieldString = "";
 		
-		String className = object.getClass().getName();
+		String className = obj.getClass().getName();
 		
 		ArrayList<String> instanceFields = getFields(className, log);
 		ArrayList<String> instanceFieldValues = new ArrayList<String>();
@@ -89,16 +89,16 @@ public class Reflection {
 				dataType = instanceFields.get(i * 2);
 				attribute = instanceFields.get(i * 2 + 1);
 
-				Field privateField = object.getClass().getDeclaredField(attribute);
+				Field privateField = obj.getClass().getDeclaredField(attribute);
 				privateField.setAccessible(true);
 			
 				if (dataType.equalsIgnoreCase("String")) {
-					fieldString= (String) privateField.get(object);
+					fieldString= (String) privateField.get(obj);
 				}
 				if (dataType.equalsIgnoreCase("int") || 
 						dataType.equalsIgnoreCase("double") ||
 						dataType.equalsIgnoreCase("boolean")) {
-					fieldString = String.valueOf(privateField.get(object));
+					fieldString = String.valueOf(privateField.get(obj));
 				}
 						
 				instanceFieldValues.add(dataType);
