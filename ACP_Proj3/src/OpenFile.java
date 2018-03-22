@@ -24,12 +24,13 @@ public class OpenFile implements EventHandler<ActionEvent>{
 	
 	public void handle(ActionEvent action) {
 		FileChooser fileChooser = new FileChooser();
+		
+		
         
         //Set extension filter
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
          
-        
 		
 		//Show save file dialog
         File file = fileChooser.showOpenDialog(stage);

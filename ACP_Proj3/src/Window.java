@@ -37,7 +37,7 @@ public class Window extends Application{
 		
 		// Create MenuBar
 	    MenuBar menuBar = new MenuBar();
-	    menuBar.setStyle("-fx-background-color: #FF7F50;");
+	//    menuBar.setStyle("-fx-background-color: #FF7F50;");
 	    root.setTop(menuBar);
 	    
 	    // Create menus
@@ -63,6 +63,8 @@ public class Window extends Application{
 	    
 	    // Create MenuItems - spellCheck
 	    MenuItem spellCheck = new MenuItem("Spell Check");
+	    SpellMenu spellAction = new SpellMenu(textArea);
+	    spellCheck.setOnAction(spellAction);
 
  
 	    // Add MenuItems to the Menus
