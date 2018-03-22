@@ -33,9 +33,6 @@ public class Window {
 
 	    // Set MenuBar to display at the top of the border pane
 	   root.setTop(menuBar);
-	   
-	   // Set textArea to display at the center of the border pane
-	//   root.setCenter(textArea);
 	    
 	    // Create menus
 	    Menu fileMenu = new Menu("File");
