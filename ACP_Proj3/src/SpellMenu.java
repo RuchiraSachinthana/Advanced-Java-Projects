@@ -3,6 +3,14 @@ import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+/**
+ * @author Keenal
+ * COP 4027 Advanced Computer Programming
+ * Project 3
+ * 
+ * This is handle class for Spell Menu. It opens the file and does a spell check on it. 
+ */
+
 public class SpellMenu implements EventHandler<ActionEvent>{
 	
 	private TextArea textArea;

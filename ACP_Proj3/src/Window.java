@@ -1,9 +1,6 @@
-
 import java.io.File;
 import java.io.IOException;
-
 import com.sun.prism.paint.Color;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -21,6 +18,14 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+/**
+ * @author Keenal
+ * COP 4027 Advanced Computer Programming
+ * Project 3
+ * 
+ * This is the JavaFX class that will display the window and define the MenuBars 
+ */
 
 public class Window extends Application{
 

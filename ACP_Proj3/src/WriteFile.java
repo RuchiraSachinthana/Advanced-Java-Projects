@@ -2,6 +2,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+/**
+ * @author Keenal
+ * COP 4027 Advanced Computer Programming
+ * Project 3
+ * 
+ * This class over writes the file opened in the textArea in order to save it. 
+ */
 
 public class WriteFile extends IOException {
 	

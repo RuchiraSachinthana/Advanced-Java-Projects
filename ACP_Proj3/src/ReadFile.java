@@ -6,6 +6,15 @@ import java.io.IOException;
 
 import javafx.scene.control.TextArea;
 
+/**
+ * @author Keenal
+ * COP 4027 Advanced Computer Programming
+ * Project 3
+ * 
+ * This class does the action for opening the file and it will read the file so it can be used in OpenFile class to 
+ * put it into a textArea. 
+ */
+
 public class ReadFile extends IOException{
 	
 	// add test area

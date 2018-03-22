@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,6 +9,15 @@ import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
+/**
+ * @author Keenal
+ * COP 4027 Advanced Computer Programming
+ * Project 3
+ * 
+ * This is action class for Spell Menu. it opens the file, reads through each word, hashes it onto a table and uses that map to find 
+ * corrections to the words from the input file. 
+ */
 
 public class SpellCheck{
 
@@ -94,24 +102,18 @@ public class SpellCheck{
 				c[k+1] = temp;
 				
 				String newcompareWord = new String(c);
-	
+				// System.out.println("WOKRING YET?");
 				if(hmap.containsKey(newcompareWord)){
 					if(newcompareWord.toString().length() >= 2){
 						System.out.println(checkWord + " is misspelled.");
 						System.out.println("Change it to: " + newcompareWord.toString() + "\n");
+						}
 					}
 				}
-
-			}
-			
-		}	
-	
+			}	
 		}
 	}
-		
-		
-
-	}
+}
 	
 	
 

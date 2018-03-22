@@ -11,15 +11,20 @@ import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+/**
+ * @author Keenal
+ * COP 4027 Advanced Computer Programming
+ * Project 3
+ * 
+ * This class has the handle method for saving the file. 
+ */
+
 public class SaveFile implements EventHandler<ActionEvent>{
 	
 
 	private TextArea textArea;
 	WriteFile writeFile = new WriteFile();
-	
-	/*
-	 *  Constructor
-	 */
+
 	public SaveFile(TextArea textArea) {
 		this.textArea = textArea;
 }

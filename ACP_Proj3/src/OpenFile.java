@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
@@ -8,6 +7,13 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+/**
+ * @author Keenal
+ * COP 4027 Advanced Computer Programming
+ * Project 3
+ * 
+ * This class has the handle method for Opening the file. It will put the file in text area.
+ */
 public class OpenFile implements EventHandler<ActionEvent>{
 	
 	ReadFile read = new ReadFile();
@@ -24,8 +30,7 @@ public class OpenFile implements EventHandler<ActionEvent>{
 	
 	public void handle(ActionEvent action) {
 		FileChooser fileChooser = new FileChooser();
-		
-		
+
         
         //Set extension filter
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
