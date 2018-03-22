@@ -1,3 +1,5 @@
+import java.awt.TextArea;
+
 import com.sun.prism.paint.Color;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -24,62 +26,40 @@ public class Window {
 	    Scene scene = new Scene(root, 350, 200);
 		stage.setScene(scene);
 		
-		/*// Create MenuBar
+		// Create MenuBar
 	    MenuBar menuBar = new MenuBar();
-	    menuBar.setStyle("-fx-background-color: #7cfc00;");
+	    menuBar.setStyle("-fx-background-color: #FF7F50;");
+	    
 
-	    root.setTop(menuBar);
+	    // Set MenuBar to display at the top of the border pane
+	   root.setTop(menuBar);
+	   
+	   // Set textArea to display at the center of the border pane
+	//   root.setCenter(textArea);
 	    
 	    // Create menus
 	    Menu fileMenu = new Menu("File");
 	    Menu editMenu = new Menu("Edit");
 	    
-	    // Create MenuItems
+	    
+	    // Create MenuItems and instances of the individual classes to follow the functionality 
 	    MenuItem openItem = new MenuItem("Open File");
-	    MenuItem saveFileItem = new MenuItem("Save File");
+	    OpenFile open = new OpenFile();
+	    openItem.setOnAction(open);
+	    
+	    MenuItem saveItem = new MenuItem("Save File");
+	    
 	    MenuItem exitItem = new MenuItem("Exit");
+	    exitItem.setOnAction(actionEvent -> Platform.exit());
 	    
 	    MenuItem spellCheck = new MenuItem("Spell Check");
 
-	    // operates based on the action 
-	    EventHandler<ActionEvent> action = theHandler();
-
-	    openItem.setOnAction(action);       
-	    saveFileItem.setOnAction(action);        
-	    exitItem.setOnAction(action); 
-	    spellCheck.setOnAction(action);
-
-	    
-	    // Add menuItems to the Menus
-	    fileMenu.getItems().addAll(openItem, saveFileItem, exitItem);
+	    // Add MenuItems to the Menus
+	    fileMenu.getItems().addAll(openItem, saveItem, exitItem);
 	    editMenu.getItems().addAll(spellCheck);
 	    
-	    // Add Menus to the MenuBar
+	    // get the menus to display on the screen 
 	    menuBar.getMenus().addAll(fileMenu, editMenu);
-	    
-	    
-	}
-	
-    
-    private EventHandler<ActionEvent> theHandler() {
-        return new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent event) {
-                MenuItem mItem = (MenuItem) event.getSource();
-                String item = mItem.getText();
-                if (item.equalsIgnoreCase("Open File")) {
-                    OpenFile open = new OpenFile();
-                    open.openFile();
-                } else if (item.equalsIgnoreCase("New")) {
-                    System.out.println("New");
-                } else if (item.equalsIgnoreCase("Copy")) {
-                    System.out.println("Copy");
-                } else if (item.equalsIgnoreCase("Exit")) {
-                    System.out.println("Exit");
-                    Platform.exit();
-                }
-            }
-        };*/
     }
     
 
