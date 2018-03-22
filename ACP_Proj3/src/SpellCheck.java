@@ -21,7 +21,6 @@ import java.util.Set;
 
 public class SpellCheck{
 
-    // Declear/initaize the variables
 	String line;
 	int lineNum = 0;
 	String[] word;
@@ -30,7 +29,6 @@ public class SpellCheck{
 			'i','j','k','l','m','n','o', 'p','q','r',
 			's','t','u','v','w','x','y','z'};
 	String checkWord;
-	
 	
 	HashMap<String, Integer> hmap = new HashMap<String, Integer>();
 	
@@ -95,13 +93,13 @@ public class SpellCheck{
 			
 			//swap letters to check in hashmap to see if the word exist
 			for(int k = 0; k < checkWord.length()-1; k++){
-				char[] c = checkWord.toCharArray();
+				char[] check = checkWord.toCharArray();
 				
-				char temp = c[k];
-				c[k] = c[k+1];
-				c[k+1] = temp;
+				char temp = check[k];
+				check[k] = check[k+1];
+				check[k+1] = temp;
 				
-				String newcompareWord = new String(c);
+				String newcompareWord = new String(check);
 				// System.out.println("WOKRING YET?");
 				if(hmap.containsKey(newcompareWord)){
 					if(newcompareWord.toString().length() >= 2){
