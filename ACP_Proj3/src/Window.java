@@ -54,6 +54,8 @@ public class Window extends Application{
 	    
 	    // Create MenuItems - saveItem
 	    MenuItem saveItem = new MenuItem("Save File");
+	    SaveFile saveAction = new SaveFile(textArea);
+	    saveItem.setOnAction(saveAction);
 	    
 	    // Create MenuItems - exitItem
 	    MenuItem exitItem = new MenuItem("Exit");

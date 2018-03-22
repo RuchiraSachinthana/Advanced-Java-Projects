@@ -36,6 +36,7 @@ public class OpenFile implements EventHandler<ActionEvent>{
         if(file != null){
            
 			try {
+				// Place the text from the text file onto the textArea
 				textArea.setText(read.readFile(file));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

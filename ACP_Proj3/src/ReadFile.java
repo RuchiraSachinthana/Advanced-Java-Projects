@@ -14,6 +14,7 @@ public class ReadFile extends IOException{
 	BufferedReader bufferReader;
 	StringBuilder stringBuffer;
 	
+	// Open file to read from
 	 public String readFile(File file) throws IOException {
 		  
 		 
