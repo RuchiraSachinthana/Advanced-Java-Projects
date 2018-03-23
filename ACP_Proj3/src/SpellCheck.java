@@ -21,25 +21,25 @@ import java.util.Set;
 
 public class SpellCheck{
 
-	String line;
-	int lineNum = 0;
-	String[] word;
-	StringBuilder compareWord;
-	char[] letter = {'a', 'b','c','d','e','f','g','h',
+	private String checkWord;
+	private String line;
+	private int lineNum = 0;
+	private String[] word;
+	private StringBuilder compareWord;
+	private char[] letter = {'a', 'b','c','d','e','f','g','h',
 			'i','j','k','l','m','n','o', 'p','q','r',
 			's','t','u','v','w','x','y','z'};
-	String checkWord;
 	
-	HashMap<String, Integer> hmap = new HashMap<String, Integer>();
+	private HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
 	
 	//read Words.txt and store it into a HashMap
-	public void openFile(String wordfilename){
+	public void openFile(String fileName){
 		String[] word;
 		try{	
-			BufferedReader read = new BufferedReader(new FileReader(wordfilename));
+			BufferedReader read = new BufferedReader(new FileReader(fileName));
 			
 			while((line = read.readLine()) != null){
-				hmap.put(line, lineNum);
+				hashMap.put(line, lineNum);
 				lineNum++;
 			}
 			read.close();
@@ -59,14 +59,14 @@ public class SpellCheck{
 		for(int i = 0; i < word.length; i++){
 			checkWord = word[i].toLowerCase();
 	
-		if(!hmap.containsKey(checkWord)){
+		if(!hashMap.containsKey(checkWord)){
 			//add one more letter to check if the word is missing a letter
 			for(int j =0; j<letter.length; j++){
 				compareWord = new StringBuilder(checkWord + letter[j]);
 				
 			//	System.out.println(compareWord);
 				
-				if(hmap.containsKey(compareWord.toString())){
+				if(hashMap.containsKey(compareWord.toString())){
 			//		System.out.println("BETWEEEEN");
 					
 					if(compareWord.toString().length() >= 2){
@@ -82,7 +82,7 @@ public class SpellCheck{
 				compareWord = new StringBuilder(checkWord);
 				compareWord = compareWord.deleteCharAt(i11);
 				
-				if(hmap.containsKey(compareWord.toString())){
+				if(hashMap.containsKey(compareWord.toString())){
 					if(compareWord.toString().length() >= 2){
 						System.out.println(checkWord + " is misspelled.");
 						System.out.println("Change it to: " + compareWord.toString() + "\n");
@@ -101,7 +101,7 @@ public class SpellCheck{
 				
 				String newcompareWord = new String(check);
 				// System.out.println("WOKRING YET?");
-				if(hmap.containsKey(newcompareWord)){
+				if(hashMap.containsKey(newcompareWord)){
 					if(newcompareWord.toString().length() >= 2){
 						System.out.println(checkWord + " is misspelled.");
 						System.out.println("Change it to: " + newcompareWord.toString() + "\n");

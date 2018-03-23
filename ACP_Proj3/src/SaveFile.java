@@ -22,7 +22,8 @@ import javafx.stage.Stage;
 public class SaveFile implements EventHandler<ActionEvent>{
 	
 
-	private TextArea textArea;
+	TextArea textArea = new TextArea();
+	   
 	WriteFile writeFile = new WriteFile();
 
 	public SaveFile(TextArea textArea) {

@@ -6,6 +6,7 @@ import javafx.application.Application;
  * Project 3
  * 
  * This is the main/tester class. 
+ * 
  */
 
 public class Main extends Window{
