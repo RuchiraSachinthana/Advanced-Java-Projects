@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 
 public class Window extends Application {
 	
+	private String stageTitle = "Horse Race";
+	
 	public void start(Stage stage) throws IOException {
 		
 		/*
@@ -30,7 +32,7 @@ public class Window extends Application {
 		    
 	        Scene scene = new Scene(root, 600, 400);
 	    
-	        stage.setTitle("Horse Race");
+	        stage.setTitle(stageTitle);
 	        stage.setScene(scene);
 	        stage.show();
 				
