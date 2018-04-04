@@ -3,12 +3,20 @@ package controller;
 public class ButtonController {
 	
 	RunHandler running = new RunHandler();
+	Timer timer = new Timer();
 	ResetHandler resetting = new ResetHandler();
 	
 	public void raceButtonClicked() {
 		
+		running.showHorses();
 		
-		running.testMethod();
+		timer.start();
+		/*
+		for(int i = 0; i < 5; i++) {
+			running.startRace(i);
+		}
+		*/
+		 
 		
 	}
 	
@@ -19,8 +27,10 @@ public class ButtonController {
 	}
 	
 	public void quitButtonClicked() {
+		
 		System.out.println("Quitting");
 		System.exit(0);
+		
 	}
 
 }
